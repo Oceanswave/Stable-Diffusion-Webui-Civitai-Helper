@@ -348,7 +348,7 @@ def preview_exists(model_path):
 def should_skip(user_rating, image_rating):
     """ return: True if preview_nsfw level higher than user threshold """
     order = NSFW_LEVELS
-    if user_rating == "Skip":
+    if user_rating == "Skip" or user_rating == '':
         # Old config
         return False
     if isinstance(image_rating, bool):
