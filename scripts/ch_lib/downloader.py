@@ -145,10 +145,7 @@ def download_progress(
             )
 
         except requests.HTTPError as dl_error:
-            # 416 - Range Not Satisfiable
-            response = dl_error.response
-            if not response or response.status_code != 416:
-                raise
+            # 416 - just fuckin' skip it
 
             util.printD("Could not resume download from existing temporary file. Restarting download")
 
